@@ -6,6 +6,8 @@ import ApolloClient from 'apollo-boost';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer'
+
 
 //cleint side set with jwt headers
 const client = new ApolloClient({
@@ -31,6 +33,7 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
         </Switch>
       </>
+      <Footer />
     </Router>
     </ApolloProvider>
   );
