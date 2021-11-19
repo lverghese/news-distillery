@@ -116,7 +116,7 @@ const Home = () => {
             </Form.Row>
           </Form>
         </Container>
-        <CardColumns>
+        <CardColumns className="article-wrapper">
             {displayArticles.map((article) => {
                 return(
                     <Card key = {article.articleId}>
