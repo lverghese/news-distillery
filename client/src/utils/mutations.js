@@ -54,7 +54,7 @@ mutation saveArticle($input: articleInput!){
 
 export const REMOVE_ARTICLE = gql`
     mutation removeArticle($ArticleId: String){
-        removeArticle(ArticleId: $Int){
+        removeArticle(ArticleId: $String){
             _id
             username
             email

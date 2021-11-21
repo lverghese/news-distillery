@@ -56,11 +56,11 @@ const resolvers = {
              }
              throw new AuthenticationError('You need to be logged in!');
            },
-            removeArticle: async(parent, {_id}, {user}) => {
+            removeArticle: async(parent, {articleId}, {user}) => {
                  if(user){
                      const updatedUser = await User.findByIdAndUpdate(
                          {_id: user._id },
-                         {$pull: {savedArticles: { _id: _id }}},
+                         {$pull: {savedArticles: { articleId: articleId }}},
                          {new: true, runValidators: true }
                      );
                      return updatedUser;

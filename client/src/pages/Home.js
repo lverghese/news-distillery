@@ -50,6 +50,7 @@ const Home = () => {
        const { data } = await saveArticle({ 
            variables: {input: articleToSave}
        });
+       //saveArticle(articleId);
        console.log(data);
        if(error){
         throw new Error('something went wrong!');
@@ -66,9 +67,9 @@ const Home = () => {
         //could be cool to have articles populate the homepage at random for browsing until user searches for one
         event.preventDefault();
 
-
         if (!searchInput) {
             return false;
+            //have random articles populate the homepage
           }
       
           try {
