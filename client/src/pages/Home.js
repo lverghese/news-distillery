@@ -90,7 +90,7 @@ const Home = () => {
        return (
           <>
         <Container>
-          <h1 className="text-center">Search for Endless Articles!</h1>
+          <h1 className="text-center text-dark ">Search for Endless Articles!</h1>
           <Form onSubmit={handleShowArticles}>
             <Form.Row>
               <Col xs={12} md={8}>

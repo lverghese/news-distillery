@@ -18,7 +18,7 @@ const AppNavbar = () => {
           <Container fluid>
             <Navbar.Brand as={Link} to='/'>
              
-              Google Articles Search
+              Distilled News Hub
               
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='navbar' />
