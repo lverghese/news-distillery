@@ -58,6 +58,9 @@ const Dashboard = () => {
                 ? `You have ${userData.savedArticles.length} saved ${userData.savedArticles.length === 1 ? 'articles' : 'articles'}: left to complete!`
                 : 'You have no saved articles yet'}
             </h2>
+            <div className="container">
+            <div className="row">
+          <div className="col-12 text-center mt-5">
             <CardColumns>
               {userData.savedArticles.map((article) => {
                 return (
@@ -76,6 +79,9 @@ const Dashboard = () => {
                 );
               })}
             </CardColumns>
+            </div>
+            </div>
+            </div>
           </Container>
         </>
       );
