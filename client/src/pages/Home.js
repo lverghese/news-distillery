@@ -93,7 +93,7 @@ const Home = () => {
           <h1 className="text-center text-dark ">Search for Endless Articles!</h1>
           <Form onSubmit={handleShowArticles}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col xs={12} md={11}>
                 <Form.Control
                   name='searchInput'
                   value={searchInput}
@@ -103,7 +103,7 @@ const Home = () => {
                   placeholder='Search for an article!'
                 />
               </Col>
-              <Col xs={12} md={4}>
+              <Col xs={12} md={1}>
                 <Button type='submit' variant='dark' size='lg'>
                   Search
                 </Button>
