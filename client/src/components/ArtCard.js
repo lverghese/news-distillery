@@ -10,7 +10,7 @@ const ArtCard = (props) => {
             <Card.Subtitle> Written by: {props.author}</Card.Subtitle>
             <Card.Text>{props.description}</Card.Text>
             <Card.Link href={props.url}><Card.Img src={props.urlToImage}></Card.Img></Card.Link>
-            <h6> Click the book to Save!</h6>
+            <h7 className="wording"> Click the picture to visit the article or Click the book to save!</h7>
             <Card.Link onClick={(e) => props.handleSave(e)}>
             
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-book-half" viewBox="0 0 16 16" >
