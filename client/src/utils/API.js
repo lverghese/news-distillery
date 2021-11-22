@@ -1,6 +1,48 @@
 require('dotenv').config()
 
+//======pusher trial =======================================//
 
+// require('dotenv').config({ path: '.env' });
+// import Pusher from 'pusher-js';
+// import pushid from 'pushid';
+// const NewsAPI = require('newsapi');
+
+// const pusher = new Pusher({
+//   appId: process.env.PUSHER_APP_ID,
+//   key: process.env.PUSHER_APP_KEY,
+//   secret: process.env.PUSHER_APP_SECRET,
+//   cluster: process.env.PUSHER_APP_CLUSTER,
+//   encrypted: true,
+// });
+
+// const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
+
+// export const updateFeed =(topic) => {
+// let counter = 2;
+// setInterval(() => {
+//   fetchNews(topic, counter)
+//     .then(response => {
+//       pusher.trigger('news-channel', 'update-news', {
+//         articles: response.articles,
+//       });
+//       counter += 1;
+//     })
+//     .catch(error => console.log(error));
+// }, 3000);
+// }
+
+// //app.
+// export const getFeed = () => {
+// const topic = 'bitcoin';
+// fetchNews(topic, 1)
+//   .then(response => {
+//     res.json(response.articles);
+//     updateFeed(topic);
+//   })
+//   .catch(error => console.log(error));
+// }
+
+//======================================================//
 export const getMe = (token) => {
     return fetch('/api/users/me', {
       headers: {
@@ -62,24 +104,5 @@ export const searchArticles= (query) => {
     return fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${KEY}`);
 };
 
-export const componentDidMount = () =>{
-  fetch('http://localhost:5000/live')
-  .then(response => response.json())
-  .then(articles => {
-    this.setState({
-      newsItems: [...this.state.newsItems, ...articles],
-    });
-  }).catch(error => console.log(error));
 
-const pusher = new Pusher('<your app key>', {
-  cluster: '<your app cluster>',
-  encrypted: true,
-});
-
-const channel = pusher.subscribe('news-channel');
-channel.bind('update-news', data => {
-  this.setState({
-    newsItems: [...data.articles, ...this.state.newsItems],
-  });
-});
-}
+//===========================================================================//

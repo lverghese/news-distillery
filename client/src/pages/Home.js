@@ -15,8 +15,12 @@ import Auth from '../utils/Auth';
 import { useMutation } from '@apollo/react-hooks';
 import { GET_ME } from '../utils/queries';
 import { SAVE_ARTICLE } from "../utils/mutations";
-import { saveArticleIds, getSavedArticleIds } from "../utils/localStorage";
+import { savedArticleIds, getSavedArticleIds } from "../utils/localStorage";
 import { searchArticles } from '../utils/API';
+require('dotenv').config({ path: '.env' });
+import Pusher from 'pusher-js';
+import pushid from 'pushid';
+
 const Home = () => {
 //create state to hold articles from api data
     const [displayArticles, setDisplayArticles] =  useState([]);
@@ -27,15 +31,16 @@ const Home = () => {
     // set up useEffect hook to save `savedarticles` 
     //list to localStorage on component unmount too keep pwa functionality
     //method to display api data 
-
+//=================================================//
   //pusher vars for news feed if !searchinput
   //START
 
-  state = {
+  const state = {
     newsItems: [],
   }
-  const pusher = new Pusher('<your app key>', {
-    cluster: '<your app cluster>',
+  
+  const pusher = new Pusher(process.env.PUSHER_APP_KEY, {
+    cluster:  process.env.PUSHER_APP_CLUSTER,
     encrypted: true,
   });
 
@@ -45,17 +50,12 @@ const Home = () => {
       newsItems: [...data.articles, ...this.state.newsItems],
     });
   });
-}
+
 //END
-
-
-
-
-
-
+//=================================================//
 
     useEffect(() => {
-        return () => saveArticleIds(savedArticleIds);
+        return () => savedArticleIds(savedArticleIds);
     });
 
  //called onclick of save this article btn
@@ -92,25 +92,42 @@ const Home = () => {
         //could be cool to have articles populate the homepage at random for browsing until user searches for one
         event.preventDefault();
 
+
+//=================================================INITIALIZE NEWS FEED=========================================================//
         if (!searchInput) {
             //return false;
-            render() {
+            //render() {
               const NewsItem = (article, id) => (
                 <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
               );
               const newsItems = this.state.newsItems.map(e => NewsItem(e, pushid()));
     
         return (
-          <div className="App">
-            <h1 className="App-title">Live Bitcoin Feed</h1>
-    
-            <ul className="news-items">{newsItems}</ul>
-          </div>
+          <CardColumns>
+          {newsItems.map((article) => {
+              return(
+                  <Card key = {article.articleId}>
+                      <Card.Title>{article.title}</Card.Title>
+                      <Card.Subtitle className='mb-2 text-muted'> Author(s): {article.author}</Card.Subtitle>
+                      <Card.Text>{article.description}</Card.Text>
+                      <Card.Link href={article.url}>{article.url}</Card.Link>
+                      {Auth.loggedIn() && (
+                  <Button
+                    disabled={savedArticleIds?.some((savedArticleId) => savedArticleId === article.articleId)}
+                    className='btn-block btn-info'
+                    onClick={() => handleSaveArticle(article.articleId)}>
+                    {savedArticleIds?.some((savedArticleId) => savedArticleId === article.articleId)
+                      ? 'Article saved to dashboard!'
+                      : 'Save Article!'}
+                  </Button>
+                )}
+                  </Card>
+              );
+          })}
+      </CardColumns>
         );
       }
-    }
-    
-}
+//==========================================================================================================//
       
           try {
               //response == api fetch + query
