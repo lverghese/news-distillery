@@ -28,6 +28,32 @@ const Home = () => {
     //list to localStorage on component unmount too keep pwa functionality
     //method to display api data 
 
+  //pusher vars for news feed if !searchinput
+  //START
+
+  state = {
+    newsItems: [],
+  }
+  const pusher = new Pusher('<your app key>', {
+    cluster: '<your app cluster>',
+    encrypted: true,
+  });
+
+  const channel = pusher.subscribe('news-channel');
+  channel.bind('update-news', data => {
+    this.setState({
+      newsItems: [...data.articles, ...this.state.newsItems],
+    });
+  });
+}
+//END
+
+
+
+
+
+
+
     useEffect(() => {
         return () => saveArticleIds(savedArticleIds);
     });
@@ -67,8 +93,24 @@ const Home = () => {
         event.preventDefault();
 
         if (!searchInput) {
-            return false;
-          }
+            //return false;
+            render() {
+              const NewsItem = (article, id) => (
+                <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
+              );
+              const newsItems = this.state.newsItems.map(e => NewsItem(e, pushid()));
+    
+        return (
+          <div className="App">
+            <h1 className="App-title">Live Bitcoin Feed</h1>
+    
+            <ul className="news-items">{newsItems}</ul>
+          </div>
+        );
+      }
+    }
+    
+}
       
           try {
               //response == api fetch + query
