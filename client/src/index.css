@@ -56,3 +56,7 @@ code {
 .card-text {
   margin: 12px;
 }
+
+.card-link h6, svg {
+  margin: 15px;
+}
