@@ -42,3 +42,17 @@ code {
   background-color: #002945;
 }
 
+.card-header {
+  font-weight: bold;
+  margin: auto;
+  width: auto;
+  font-size: large;
+}
+
+.card-subtitle {
+  margin: 12px;
+}
+
+.card-text {
+  margin: 12px;
+}
