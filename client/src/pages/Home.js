@@ -21,7 +21,7 @@ const Home = () => {
 //create state to hold articles from api data
     const [displayArticles, setDisplayArticles] =  useState([]);
     //search initially empty
-    const [searchInput, setSearchInput] = useState('');
+    const [searchInput, setSearchInput] = useState('bitcoin');
     const [savedArticleIds, setSavedArticleIds] = useState(getSavedArticleIds());
     const [saveArticle, { error }] = useMutation(SAVE_ARTICLE);
     // set up useEffect hook to save `savedarticles` 
@@ -67,10 +67,45 @@ const Home = () => {
         event.preventDefault();
 
         if (!searchInput) {
-            return false;
-          }
+          try{
+            handleShowArticles('bitcoin');
+            //return false;
+            /*
+            const defualtInput = 'bitcoin';
+            const response = await searchArticles(defualtInput);
       
-          try {
+            if (!response.ok) {
+              throw new Error('something went wrong!');
+            }
+      
+            const { articles } = await response.json();
+            console.log(articles);
+            const articleData = articles.map((article) => ({
+                articleId: article.url,
+                author: article.author,
+                title: article.title,
+                description: article.description,
+                url: article.url,
+                urlToImage: article.urlToImage
+              }))
+          
+              //if not search, just display a bunch of fetched articles of a certain type?
+              setDisplayArticles(articleData);
+              setSearchInput('');
+              //return false;
+          }
+          catch (err) {
+            console.error(err);
+          }
+          */
+         return;
+        } catch (err) {
+          console.error(err);
+        }
+      }
+        
+      
+         try {
               //response == api fetch + query
             const response = await searchArticles(searchInput);
       
