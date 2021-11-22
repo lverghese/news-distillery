@@ -26,7 +26,6 @@ const Home = () => {
     const [saveArticle, { error }] = useMutation(SAVE_ARTICLE);
     // set up useEffect hook to save `savedarticles` 
     //list to localStorage on component unmount too keep pwa functionality
-//possible to set unmount to after 2 weeks of no use?
     //method to display api data 
 
     useEffect(() => {
@@ -69,7 +68,6 @@ const Home = () => {
 
         if (!searchInput) {
             return false;
-            //have random articles populate the homepage
           }
       
           try {
