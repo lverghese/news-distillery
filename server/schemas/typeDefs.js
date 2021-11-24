@@ -15,21 +15,6 @@ type User {
     savedArticles: [Article]
 }
 
-<<<<<<< HEAD
-type Circuit {
-    _id: ID
-    circuitId: String
-    name: String
-    exercises: [exercises]
-}
-
-type Exercise{
-    _id: ID!
-    name: String
-    reps: Int
-    
-}
-=======
 type Article{
     articleId: String
     author: [String]
@@ -40,7 +25,6 @@ type Article{
     content: String
 }
 
->>>>>>> develop
 type Auth {
     token: ID!
     user: User
@@ -65,7 +49,4 @@ type Mutation{
 `;
 //  https://egghead.io/lessons/apollo-wrap-graphql-mutation-arguments-with-a-graphql-input-type
 module.exports = typeDefs;
-<<<<<<< HEAD
-=======
 //   
->>>>>>> develop
