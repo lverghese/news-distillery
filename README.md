@@ -28,7 +28,7 @@
   :exclamation: 
     Run the application and create an account, log out and log back in and see your fitness plan has been saved.
   ## URL
-https://fitness-buddy-2.herokuapp.com/
+https://news-distillery.herokuapp.com/
   ## Questions
   :alien: email me!<br />
   <br />
