@@ -49,4 +49,8 @@ type Mutation{
 `;
 //  https://egghead.io/lessons/apollo-wrap-graphql-mutation-arguments-with-a-graphql-input-type
 module.exports = typeDefs;
+<<<<<<< HEAD
 //   
+=======
+//   
+>>>>>>> 392069d336c7ba51e56f98a6fa9d562f5a0bc132
