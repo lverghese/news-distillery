@@ -6,14 +6,9 @@
 ![Get Started](./views/image-1.png)
 ![Get Started](./views/image-2.png)
 
-  ## Table of Contents
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
+
+## Contributions
+Made by myself, Caroline Luce, Conner Cochrane and Justin Bedford
   ## Installation
   :floppy_disk: 
   clone the project (prerequisite: node.js, mongoose, graphql, install dependencies) and run 'npm run Develop' in your terminal and watch the Distilled News Hub come alive.
@@ -25,14 +20,9 @@
   ## Contributing
   :innocent: PR's welcome
   ## Tests
-  :exclamation: 
+
     Run the application and create an account, log out and log back in and see your fitness plan has been saved.
   ## URL
 https://news-distillery.herokuapp.com/
   ## Questions
-  :alien: email me!<br />
-  <br />
-  :octocat: Find me on GitHub: [Cluce059](https://github.com/Cluce059)<br />
-  <br />
-  :speech_balloon: Email: Cluce059@gmail.com<br /><br />
-  _This README was generated with :heart: by [README-generator](https://github.com/Cluce059/readme-generator)  :eyes::eyes::eyes:_
+For any questions please email me at loganverghese@gmail.com or see more projects at https://github.com/lverghese
